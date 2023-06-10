@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+       <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+    <title> MoNeY_4R_YoU</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      background-color: #000000;
+    }
+    
+    .profile img {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .profile img::before {
+      content: "\f030";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 30px;
+      color: white;
+      background-color: rgba(255, 255, 255, 0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .profile img:hover::before {
+      opacity: 1;
+    }
+    
+    .profile .details {
+      display: flex;
+      flex-direction: column;
+      color: white;
+    }
+    
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    
+    .currency{
+        font-weight: bold;
+      font-size: 20px;
+      
+   
+    }
+    
+    .balance span {
+      margin-right: 5px;
+    }
+    
+    .dashboard .card {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .dashboard .card h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .profile {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile img {
+        margin-bottom: 10px;
+      }
+
+      .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+    }
+    .invest1{
+        cursor: pointer;
+       
+        font-style:normal;
+        font-size: 20px;
+        background-color: antiquewhite;
+        border: none;
+        margin-top: 20px;
+        margin-left: 100px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
+    .investdashboard{
+        margin-left: 40%;
+    }
+    .innerboard{
+        font-size: 20px;
+      margin-left: 10px;
+
+    }
+    .cards{
+        background-color: azure;
+      border-radius: 6px; 
+      border: solid;
+    border-color:rgb(200, 239, 239) ; }
+
+    .invest1{
+       
+      display: inline-block;
+        padding: 7px;
+      background-color: #007bff;
+      color: white;
+      padding-left: 6px;
+      padding-right: 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      border: none;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .invest1:hover {
+      background-color: #0056b3;
+    }
+    .invest11{
+       
+       display: inline-block;
+       padding: 10px 20px;
+       background-color: #007bff;
+       color: white;
+       text-decoration: none;
+       border-radius: 4px;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+       margin-left: 100px;
+       margin-top: 40px;
+       transition: background-color 0.3s ease;
+     }
+ 
+     .invest11:hover {
+       background-color: #0056b3;
+     }
+    
+  </style>
+</head>
+<body>
+  <div class="profile">
+    <img src="https://www.kindpng.com/picc/m/21-214439_free-high-quality-person-icon-default-profile-picture.png" alt="Profile Photo" id="profile-photo">
+    <div class="details">
+      <h2 id="username">Prem Kumar</h2>
+      <p>ID: <span id="id">101</span></p>
+      <p>Date of Joining: <span id="date-joined">2022-01-01</span></p>
+      <p>Balance:<span class="currency"> ₹ 100 </span></p>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="cards">
+       
+      <h2 class="investdashboard">Invest</h2>
+      <p class="innerboard">click the below botton to invest</p>
+<button class="invest11" onclick="redirectToWhatsApp()"> Click here</button> 
+   </div>
+    <div class="cards">
+      <h2 class="investdashboard">withdraw</h2>
+      <p class="innerboard">click the below botton to withdraw</p>
+<button class="invest1" onclick="redirectToWhatsApp()"> Click here</button> 
+    </div>
+    <div class="cards">
+      <h2>contact us</h2>
+      <p class="innerboard">click the below botton to contact us </p>
+      <button class="invest1" onclick="redirectToWhatsApp()"> Click here</button> 
+         
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code for changing the profile photo
+    document.getElementById("profile-photo").addEventListener("click", function() {
+      document.getElementById("file-input").click();
+    });
+
+    document.getElementById("file-input").addEventListener("change", function(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+      
+      reader.onload = function(e) {
+        document.getElementById("profile-photo").src = e.target.result;
+      };
+      
+      reader.readAsDataURL(file);
+    });
+  </script>
+
+<script>
+    function redirectToWhatsApp() {
+      window.location.href = "https://api.whatsapp.com/send?phone=7899062883"; // Replace with your WhatsApp URL or phone number
+    }
+  </script>
+  <input type="file" id="file-input" style="display: none;">
+</body>
+</html>
